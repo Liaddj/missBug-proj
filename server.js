@@ -19,7 +19,11 @@ app.get("/api/bug/save", (req, res) => {
 });
 
 app.get("/api/bug", (req, res) => {
-  bugService.query().then((bugs) => res.send(bugs));
+  const filterBy =  {
+    txt: req.query.txt,
+    minSeverity: +req.query.minSeverity
+  }
+  bugService.query(filterBy).then((bugs) => res.send(bugs));
 });
 
 app.get("/api/bug/:id", (req, res) => {

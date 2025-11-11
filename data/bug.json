@@ -4,27 +4,39 @@
     "title": "Cannot save a new bug",
     "description": "problem when clicking Save",
     "severity": 3,
-    "createdAt": 1542107359454
+    "createdAt": 1542107359454,
+     "labels": ["critical", "need-CR","״dev-branch"]
   },
- {
+  {
     "_id": "abc344",
-    "title": "Cannot find bug",
+    "title": "Cannot+ find bug",
     "description": "problem when clicking Save",
     "severity": 3,
-    "createdAt": 1542107359454
+    "createdAt": 1542107359454,
+    "labels": ["critical", "need-CR","״dev-branch"]
   },
   {
     "_id": "abc155",
     "title": "Cannot remove bug",
     "description": "problem when clicking Save",
     "severity": 3,
-    "createdAt": 1542107359454
+    "createdAt": 1542107359454,
+     "labels": ["critical", "need-CR","״dev-branch"]
   },
   {
     "_id": "abc756",
     "title": "Cannot add bug",
     "description": "problem when clicking Save",
     "severity": 3,
-    "createdAt": 1542107359454
+    "createdAt": 1542107359454,
+     "labels": ["critical", "need-CR","״dev-branch"]
+  },
+  {
+    "_id": "Pjfbr",
+    "title": "liadd",
+    "description": "whyyy",
+    "severity": 4,
+    "createdAt": 1762689942046,
+     "labels": ["critical", "need-CR","״dev-branch"]
   }
 ]

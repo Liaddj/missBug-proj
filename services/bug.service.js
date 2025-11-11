@@ -9,8 +9,17 @@ export const bugService = {
 
 const bugs = readJsonFile("./data/bug.json");
 
-function query() {
-  return Promise.resolve(bugs);
+function query(filterBy = {}) {
+  var filterBugs = bugs
+  if (filterBy.txt) {
+    const regExp = new RegExp(filterBy.txt, "i");
+    filterBugs = bugs.filter((bug) => regExp.test(bug.title));
+  }
+
+  if (filterBy.minSeverity) {
+    filterBugs = bugs.filter((bug) => bug.severity >= filterBy.minSeverity);
+  }
+  return Promise.resolve(filterBugs);
 }
 
 function getById(bugId) {
@@ -32,7 +41,7 @@ function save(bug) {
   if (bug._id) {
     const idx = bugs.findIndex((b) => b._id === bug._id);
     if (idx === -1) return Promise.reject("Bug not found");
-    bugs[idx] = { ...bugs[idx], ...bug };  //patch
+    bugs[idx] = { ...bugs[idx], ...bug }; //patch
   } else {
     bug._id = makeId();
     bug.createdAt = Date.now();
