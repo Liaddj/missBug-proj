@@ -5,10 +5,22 @@ import { loggerService } from "./services/logger.service.js";
 
 const app = express();
 app.use(express.static("public"));
+app.use(express.json())
 
-app.get("/api/bug/save", (req, res) => {
-  const { id: _id, title, description, severity } = req.query;
-  const bug = { _id, title, description, severity: +severity };
+app.put("/api/bug/:id", (req, res) => {
+  console.log(req.body)
+  const {  _id, title, description, severity } = req.body;
+  const bug = { _id, title, description, severity };
+  bugService
+    .save(bug)
+    .then((bug) => res.send(bug))
+    .catch((err) => {
+      loggerService.error(err);      res.status(404).send(err);
+    });
+})
+app.post("/api/bug", (req, res) => {
+  const {title, description, severity } = req.body;
+  const bug = { title, description, severity };
 
   bugService
     .save(bug)
@@ -16,15 +28,18 @@ app.get("/api/bug/save", (req, res) => {
     .catch((err) => {
       loggerService.error(err);      res.status(404).send(err);
     });
-});
+})
 
 app.get("/api/bug", (req, res) => {
   const filterBy =  {
-    txt: req.query.txt,
-    minSeverity: +req.query.minSeverity
+    txt: req.query.txt || '',
+    minSeverity: +req.query.minSeverity || 0,
+    paginationOn: req.query.paginationOn === 'true',
+    pageIdx: +req.query.pageIdx
   }
-  bugService.query(filterBy).then((bugs) => res.send(bugs));
-});
+  bugService.query(filterBy)
+  .then((bugs) => res.send(bugs));
+})
 
 app.get("/api/bug/:id", (req, res) => {
   const bugId = req.params.id;
@@ -35,9 +50,9 @@ app.get("/api/bug/:id", (req, res) => {
       loggerService.error(err);
       res.status(404).send(err);
     });
-});
+})
 
-app.get("/api/bug/:id/remove", (req, res) => {
+app.delete("/api/bug/:id", (req, res) => {
   const bugId = req.params.id;
 
   bugService
@@ -47,19 +62,10 @@ app.get("/api/bug/:id/remove", (req, res) => {
       loggerService.error(err);
       res.status(404).send(err);
     });
-});
+})
 
-app.get("/puki", (req, res) => {
-  res.send("Hello Puki");
-});
-
-app.get("/mama", (req, res) => {
-  res.send("Hello Mama Moo");
-});
-
-app.get("/nono", (req, res) => res.redirect("/mama"));
 
 const port = 3030;
 app.listen(port, () =>
   loggerService.info(`Server listening on port http://127.0.0.1:${port}/`)
-);
+)

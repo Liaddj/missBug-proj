@@ -34,10 +34,32 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
         onSetFilterBy(filterByToEdit)
     }
 
+    function onGetPage(dir) {
+        setFilterByToEdit(prev => {
+            if (prev.pageIdx + dir < 0) return prev
+            return { ...prev, pageIdx: prev.pageIdx += dir }
+        })
+    }
+
+    function togglePagination() {
+        setFilterByToEdit(prev => ({
+            ...prev,
+            paginationOn: !prev.paginationOn
+        }))
+    }
+
+
     const { txt, minSeverity } = filterByToEdit
     return (
         <section className="bug-filter">
             <h2>Filter</h2>
+            <div className="btn-page">
+                <button disabled={!filterBy.paginationOn} onClick={() => onGetPage(-1)}>-</button>
+                <span>{filterBy.pageIdx}</span>
+                <button disabled={!filterBy.paginationOn} onClick={() => onGetPage(1)}>+</button>
+
+                <button onClick={togglePagination}>Toggle Pagination</button>
+            </div>
             <form onSubmit={onSubmitFilter}>
                 <label htmlFor="txt">Text: </label>
                 <input value={txt} onChange={handleChange} type="text" placeholder="By Text" id="txt" name="txt" />

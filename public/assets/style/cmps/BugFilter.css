@@ -11,3 +11,8 @@
     margin-inline-start: 1em;
 }
 
+.btn-page{
+    display: flex;
+    justify-content: space-between;
+}
+

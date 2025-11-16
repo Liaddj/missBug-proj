@@ -1,4 +1,6 @@
+import e from "express";
 import { makeId, readJsonFile, writeJsonFile } from "./util.service.js";
+
 
 export const bugService = {
   query,
@@ -7,9 +9,11 @@ export const bugService = {
   save,
 };
 
+const PAGE_SIZE = 3
 const bugs = readJsonFile("./data/bug.json");
 
 function query(filterBy = {}) {
+  console.log(filterBy)
   var filterBugs = bugs
   if (filterBy.txt) {
     const regExp = new RegExp(filterBy.txt, "i");
@@ -19,6 +23,12 @@ function query(filterBy = {}) {
   if (filterBy.minSeverity) {
     filterBugs = bugs.filter((bug) => bug.severity >= filterBy.minSeverity);
   }
+  if (filterBy.paginationOn) {
+    const startIdx = filterBy.pageIdx * PAGE_SIZE
+		const endIdx = startIdx + PAGE_SIZE
+		filterBugs = filterBugs.slice(startIdx, endIdx)
+    console.log(startIdx,endIdx)
+	}
   return Promise.resolve(filterBugs);
 }
 
