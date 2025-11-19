@@ -4,14 +4,11 @@
     "title": "Cannot remove bug",
     "description": "problem when clicking Save",
     "severity": 0,
-    "createdAt": 1762878971895
-  },
-  {
-    "title": "laid",
-    "description": "hey",
-    "severity": 1,
-    "_id": "TONpo",
-    "createdAt": 1762880931468
+    "createdAt": 1762878971895,
+    "creator": {
+      "_id": "u105",
+      "fullname": "jojo jo"
+    }
   },
   {
     "title": "Bug 1763302557521",
@@ -19,15 +16,21 @@
     "severity": 0,
     "labels": [],
     "_id": "EoI5A",
-    "createdAt": 1763302563324
+    "createdAt": 1763302563324,
+    "creator": {
+      "_id": "u103",
+      "fullname": "Pro pa"
+    }
   },
   {
     "title": "www",
     "description": "2323ddgdg",
     "severity": 4,
     "labels": [],
-    "_id": "GVP1W",
-    "createdAt": 1763302569385
+    "creator": {
+      "_id": "GVP1W",
+      "createdAt": 1763302569385
+    }
   },
   {
     "title": "egeeg",
@@ -35,7 +38,11 @@
     "severity": 5,
     "labels": [],
     "_id": "L2ZuY",
-    "createdAt": 1763302580123
+    "createdAt": 1763302580123,
+    "creator": {
+      "_id": "u101",
+      "fullname": "Puki Ja"
+    }
   },
   {
     "title": "Bug 1763302700859",
@@ -43,6 +50,18 @@
     "severity": 4,
     "labels": [],
     "_id": "0EFjB",
-    "createdAt": 1763302707491
+    "createdAt": 1763302707491,
+    "creator": {
+      "_id": "u102",
+      "fullname": "baba ba"
+    }
+  },
+  {
+    "title": "liadi",
+    "description": "omg",
+    "severity": 0,
+    "labels": [],
+    "_id": "zou7E",
+    "createdAt": 1763489916759
   }
 ]

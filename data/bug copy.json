@@ -1,30 +1,70 @@
 [
   {
-    "_id": "abc123",
-    "title": "Cannot save a new bug",
-    "description": "problem when clicking Save",
-    "severity": 3,
-    "createdAt": 1542107359454
-  },
- {
-    "_id": "abc344",
-    "title": "Cannot find bug",
-    "description": "problem when clicking Save",
-    "severity": 3,
-    "createdAt": 1542107359454
-  },
-  {
-    "_id": "abc155",
+    "_id": "cvtdq",
     "title": "Cannot remove bug",
     "description": "problem when clicking Save",
-    "severity": 3,
-    "createdAt": 1542107359454
+    "severity": 0,
+    "createdAt": 1762878971895,
+    "creator": {
+      "_id": "u105",
+      "fullname": "jojo jo"
+    }
   },
   {
-    "_id": "abc756",
-    "title": "Cannot add bug",
-    "description": "problem when clicking Save",
-    "severity": 3,
-    "createdAt": 1542107359454
+    "title": "liad",
+    "description": "hey",
+    "severity": 1,
+    "_id": "TONpo",
+    "createdAt": 1762880931468,
+    "creator": {
+      "_id": "u104",
+      "fullname": "liad Ja"
+    }
+  },
+  {
+    "title": "Bug 1763302557521",
+    "description": "gdgdg",
+    "severity": 0,
+    "labels": [],
+    "_id": "EoI5A",
+    "createdAt": 1763302563324,
+    "creator": {
+      "_id": "u103",
+      "fullname": "Pro pa"
+    }
+  },
+  {
+    "title": "www",
+    "description": "2323ddgdg",
+    "severity": 4,
+    "labels": [],
+    "creator": {
+      "_id": "GVP1W",
+      "createdAt": 1763302569385
+    }
+  },
+  {
+    "title": "egeeg",
+    "description": "efff",
+    "severity": 5,
+    "labels": [],
+    "_id": "L2ZuY",
+    "createdAt": 1763302580123,
+    "creator": {
+      "_id": "u101",
+      "fullname": "Puki Ja"
+    }
+  },
+  {
+    "title": "Bug 1763302700859",
+    "description": "liadddd",
+    "severity": 4,
+    "labels": [],
+    "_id": "0EFjB",
+    "createdAt": 1763302707491,
+    "creator": {
+      "_id": "u102",
+      "fullname": "baba ba"
+    }
   }
 ]
