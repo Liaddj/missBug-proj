@@ -1,4 +1,5 @@
-import { userService } from './user.service.js'
+const STORAGE_KEY_LOGGEDIN_USER = 'loggedInUser'
+const BASE_URL = '/api/auth/'
 
 export const authService = {
     login,
@@ -7,38 +8,34 @@ export const authService = {
     getLoggedinUser
 }
 
-const LOGGEDIN_USER_KEY = 'loggedInUser'
-
 function login({ username, password }) {
-    return userService.getByUsername(username)
-        .then(user => {
-            if (user && user.password === password) return _setLoggedinUser(user)
-            return Promise.reject('Invalid login')
-        })
+    return axios.post(BASE_URL + 'login', { username, password })
+        .then(res => res.data)
+        .then(_setLoggedinUser)
 }
 
-function signup(user) {
-    return userService.add(user)
+function signup({ username, password, fullname }) {
+    return axios.post(BASE_URL + 'signup', { username, password, fullname })
+        .then(res => res.data)
         .then(_setLoggedinUser)
 }
 
 function logout() {
-    sessionStorage.removeItem(LOGGEDIN_USER_KEY)
-    return Promise.resolve()
+    return axios.post(BASE_URL + 'logout')
+        .then(() => sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(LOGGEDIN_USER_KEY))
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
+
+
 function _setLoggedinUser(user) {
+    const { _id, fullname, isAdmin } = user
+    const userToSave = { _id, fullname, isAdmin }
     
-    const userToSave = { 
-        _id: user._id, 
-        fullname: user.fullname, 
-        isAdmin: user.isAdmin 
-    }
-    
-    sessionStorage.setItem(LOGGEDIN_USER_KEY, JSON.stringify(userToSave))
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(userToSave))
     return userToSave
 }
+

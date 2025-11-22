@@ -1,16 +1,5 @@
 [
   {
-    "_id": "cvtdq",
-    "title": "Cannot remove bug",
-    "description": "problem when clicking Save",
-    "severity": 0,
-    "createdAt": 1762878971895,
-    "creator": {
-      "_id": "u105",
-      "fullname": "jojo jo"
-    }
-  },
-  {
     "title": "Bug 1763302557521",
     "description": "gdgdg",
     "severity": 0,
@@ -33,18 +22,6 @@
     }
   },
   {
-    "title": "egeeg",
-    "description": "efff",
-    "severity": 5,
-    "labels": [],
-    "_id": "L2ZuY",
-    "createdAt": 1763302580123,
-    "creator": {
-      "_id": "u101",
-      "fullname": "Puki Ja"
-    }
-  },
-  {
     "title": "Bug 1763302700859",
     "description": "liadddd",
     "severity": 4,
@@ -63,5 +40,27 @@
     "labels": [],
     "_id": "zou7E",
     "createdAt": 1763489916759
+  },
+  {
+    "title": "Bug 1763824079350",
+    "description": "liadddd",
+    "severity": 3,
+    "labels": [],
+    "_id": "9LXVb2",
+    "owner": {
+      "_id": "5mAVT",
+      "fullname": "ליעד"
+    }
+  },
+  {
+    "title": "Bug 1763824983124",
+    "description": "tttt",
+    "severity": 3,
+    "labels": [],
+    "_id": "wpFUkz",
+    "owner": {
+      "_id": "5mAVT",
+      "fullname": "ליעד"
+    }
   }
 ]
